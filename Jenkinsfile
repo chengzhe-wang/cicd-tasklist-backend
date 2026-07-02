@@ -102,6 +102,7 @@ pipeline {
           docker run --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
             "$TRIVY_IMAGE" image --no-progress \
+            --pkg-types os \
             --severity "$TRIVY_SEVERITY" \
             --exit-code 1 \
             "$IMAGE_NAME:$BUILD_NUMBER"
